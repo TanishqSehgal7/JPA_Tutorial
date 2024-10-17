@@ -1,6 +1,7 @@
 package com.example.jpatutorial.jpaTutorial.repositories;
 
 import com.example.jpatutorial.jpaTutorial.entities.Product;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -51,6 +52,23 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 //    Optional<Product> findByTitleAndPrice(String redBull_energy_drink, BigDecimal valueOf);
 
 //  Creating our own queries using JPQL
-    @Query("select e from Product e where e.title=?1 and e.price=?2")
+//    @Query("select e from Product e where e.title=?1 and e.price=?2")
+//    Optional<Product> findByTitleAndPrice(String title, BigDecimal price);
+
+    @Query("select e from Product e where e.title=:title and e.price=:price")
     Optional<Product> findByTitleAndPrice(String title, BigDecimal price);
+
+    /*
+        We can achieve sorting and pagination by the following ways
+        1. Using OrderBy
+    * */
+
+    List<Product> findByOrderByPrice();
+
+    /*
+     There is another way we can sort the results from the DB, which is by using Sort class
+     */
+
+    List<Product> findBy(Sort sort);
+
 }

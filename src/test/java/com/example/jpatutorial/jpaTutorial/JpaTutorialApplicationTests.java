@@ -61,6 +61,7 @@ class JpaTutorialApplicationTests {
 
 		productList = productRepository.findByTitleContainingIgnoreCase("ChoCo");
 		System.out.println(productList);
+
 	}
 
 	@Test
