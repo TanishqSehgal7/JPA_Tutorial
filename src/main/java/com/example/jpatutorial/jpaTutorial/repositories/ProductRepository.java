@@ -1,6 +1,7 @@
 package com.example.jpatutorial.jpaTutorial.repositories;
 
 import com.example.jpatutorial.jpaTutorial.entities.Product;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    List<Product> findByTitle(String title);
+    List<Product> findByTitle(String title, Pageable pageable);
 
     // ways to create custom methods in Repository
     /*
@@ -47,7 +48,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findByTitleLike(String title);
 
-    List<Product> findByTitleContainingIgnoreCase(String title);
+    List<Product> findByTitleContainingIgnoreCase(String title, Pageable pageable);
 
 //    Optional<Product> findByTitleAndPrice(String redBull_energy_drink, BigDecimal valueOf);
 

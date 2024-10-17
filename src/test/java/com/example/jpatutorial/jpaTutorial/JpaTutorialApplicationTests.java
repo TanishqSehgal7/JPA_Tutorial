@@ -43,9 +43,8 @@ class JpaTutorialApplicationTests {
 			System.out.println(product);
 		}
 
-		productList = productRepository.findByTitle("Pepsi");
-
-		System.out.println(productList);
+//		productList = productRepository.findByTitle("Pepsi");
+//		System.out.println(productList);
 
 		productList = productRepository.findByCreatedAtAfter(LocalDateTime.of(2024,1,1,0, 0,0));
 		System.out.println(productList);
@@ -59,8 +58,8 @@ class JpaTutorialApplicationTests {
 		productList = productRepository.findByTitleLike("%Choco%");
 		System.out.println(productList);
 
-		productList = productRepository.findByTitleContainingIgnoreCase("ChoCo");
-		System.out.println(productList);
+//		productList = productRepository.findByTitleContainingIgnoreCase("ChoCo");
+//		System.out.println(productList);
 
 	}
 
